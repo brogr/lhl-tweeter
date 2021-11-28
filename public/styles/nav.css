@@ -1,0 +1,24 @@
+nav {
+  position: absolute;
+  
+  color: white;
+  background-color: #4056A1;
+  height: 120px;
+  width: 100vw;
+  padding: 0.5em 1.5em;
+  /* border-radius: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+nav #logo {
+  font-family: 'Bungee', sans-serif;
+}
+nav .new-tweet {
+  display: flex;
+  flex-direction: column;
+}
+nav .new-tweet i {
+  align-self: center;
+  color: coral;
+}

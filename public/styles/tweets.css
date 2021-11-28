@@ -1,0 +1,53 @@
+#tweets {
+  margin: 2em 0;
+}
+.tweet {
+  margin: 1em 0;
+  border: 3px #545149 solid;
+  padding: 0 0.5em;
+}
+.tweet:hover, .tweet:focus {
+  box-shadow: 7px 7px lightgray;
+}
+
+.tweet header, .tweet section, .tweet footer {
+  padding: 0 1rem;
+}
+.tweet header, .tweet footer {
+  display: flex;
+  justify-content: space-between;
+}
+.tweet header {
+  padding-top: 1em;
+  padding-bottom: 0.25em;
+}
+.tweet header i {
+  margin-right: 0.33em;
+}
+.tweet header .user {
+  color: #9a9a9a;
+}
+
+.tweet section {
+  padding-bottom: 0.25em;
+}
+
+.tweet footer {
+  border-top: 3px #545149 solid;
+  font-size: small;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+}
+.tweet time {
+}
+.tweet .icons {
+  color: #4056A1;
+}
+.tweet .icons i {
+  margin-left: 0.33em;
+}
+.tweet .icons i:hover,
+.tweet .icons i:focus {
+  cursor: pointer;
+  color: goldenrod;
+}
