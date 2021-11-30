@@ -32,7 +32,7 @@
   color: white;
   text-transform: uppercase;
 }
-.new-tweet output {
+.new-tweet .counter {
   padding-right: 0;
   padding-left: 0;
 }
