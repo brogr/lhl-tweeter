@@ -11,6 +11,19 @@ $(function () {
   }); 
   */
 
+  // new tweet form: post via AJAX
+  $(".new-tweet form").on("submit", function(event) {
+    event.preventDefault();
+    console.log($(this).serialize());
+    $.ajax($(this).attr("action"), {
+      method: 'POST',
+      data: $(this).serialize()
+    });
+  });
+
+  // fetch tweets data
+  loadTweets();
+
   // Fake data taken from initial-tweets.json
   const data = [
     {
@@ -36,11 +49,17 @@ $(function () {
       created_at: 1461113959088,
     },
   ];
+  // render tweets data
   renderTweets(data);
 });
 
+// loadTweets: fetch tweets from the http://localhost:8080/tweets page
+const loadTweets = function() {
+  
+};
+
 // renderTweets: takes in an array of tweet objects, sends each to createTweetElement() and appends it to the #tweets container
-const renderTweets = function (tweetsData) {
+const renderTweets = function(tweetsData) {
   tweetsData.forEach((tweetData) => {
     const $tweet = createTweetElement(tweetData);
     $("#tweets").append($tweet); // add it to the DOM
