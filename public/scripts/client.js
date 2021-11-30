@@ -11,19 +11,35 @@ $(function () {
   }); 
   */
 
-  // new tweet form: post via AJAX
-  $(".new-tweet form").on("submit", function(event) {
-    event.preventDefault();
-    console.log($(this).serialize());
-    $.ajax($(this).attr("action"), {
-      method: 'POST',
-      data: $(this).serialize()
-    });
-  });
+  // new tweet form: submit
+  $(".new-tweet form").on("submit", submitForm);
 
   // fetch tweets data, then render them
   loadTweets(renderTweets);
 });
+
+// submitForm: new tweet form handler to validate and post data via AJAX
+const submitForm = function (event) {
+  event.preventDefault();
+
+  // validate
+  $newText = $(this).find("#tweet-text");
+  if ($newText.val() == "") {
+    alert("Error: text is empty");
+    return false;
+  }
+  if ($(this).find(".counter").hasClass("warn")) {
+    alert("Error: text is too long");
+    return false;
+  }
+    
+  // AJAX post
+  // console.log($(this).serialize());
+  $.ajax($(this).attr("action"), {
+    method: "POST",
+    data: $(this).serialize(),
+  });
+};
 
 // loadTweets: fetch tweets from the http://localhost:8080/tweets page
 const loadTweets = function (callback) {
