@@ -15,11 +15,11 @@ nav {
 nav #logo {
   font-family: 'Bungee', sans-serif;
 }
-nav .new-tweet {
+nav .new-tweet-button {
   display: flex;
   flex-direction: column;
 }
-nav .new-tweet i {
+nav .new-tweet-button i {
   align-self: center;
   color: coral;
 }
