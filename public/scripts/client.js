@@ -38,12 +38,14 @@ const submitForm = function (event) {
   $.ajax($(this).attr("action"), {
     method: "POST",
     data: $(this).serialize(),
+  }).done(function (msg) {
+    loadTweets(renderTweets);
   });
 };
 
 // loadTweets: fetch tweets from the http://localhost:8080/tweets page
 const loadTweets = function (callback) {
-  const url = "http://localhost:8080/tweets";
+  const url = "/tweets";
   $.ajax(url).done(function (data) {
     // render tweets data
     callback(data);
@@ -51,7 +53,8 @@ const loadTweets = function (callback) {
 };
 
 // renderTweets: takes in an array of tweet objects, sends each to createTweetElement() and appends it to the #tweets container
-const renderTweets = function(tweetsData) {
+const renderTweets = function (tweetsData) {
+  $("#tweets").empty();
   tweetsData.forEach((tweetData) => {
     const $tweet = createTweetElement(tweetData);
     $("#tweets").append($tweet); // add it to the DOM
