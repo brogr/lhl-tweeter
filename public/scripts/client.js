@@ -100,6 +100,9 @@ const submitForm = function (event) {
     method: "POST",
     data: $(this).serialize(),
   }).done(function (msg) {
+    // clear input field
+    $("#tweet-text").val("");
+    // reload tweets
     loadTweets(renderTweets);
   });
 };
