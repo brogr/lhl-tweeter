@@ -36,3 +36,17 @@
   padding-right: 0;
   padding-left: 0;
 }
+
+.new-tweet #errors {
+  display: none;
+  border: 3px solid red;
+  color: red;
+  margin-top: 0.5em;
+}
+.new-tweet #errors p {
+  margin: 0.5em
+}
+.new-tweet #errors p:before {
+  margin-right: 0.5em;;
+  font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f06a";
+}

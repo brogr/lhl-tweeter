@@ -1,3 +1,5 @@
+// TODO: sort tweets desc
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -22,14 +24,19 @@ $(function () {
 const submitForm = function (event) {
   event.preventDefault();
 
+  // clear and hide errors
+  $("#errors").empty().hide();
+
   // validate
   $newText = $(this).find("#tweet-text");
   if ($newText.val() == "") {
-    alert("Error: text is empty");
+    // alert("Error: text is empty");
+    $("#errors").append("<p>Error: text is empty</p>").show();
     return false;
   }
   if ($(this).find(".counter").hasClass("warn")) {
-    alert("Error: text is too long");
+    // alert("Error: text is too long");
+    $("#errors").append("<p>Error: text is too long</p>").show();
     return false;
   }
     
@@ -66,10 +73,12 @@ const createTweetElement = function(tweetData) {
   const $tweet = $(`
     <article class="tweet">
       <header>
-        <span><i class="fas fa-user-astronaut"></i> ${tweetData.user.name}</span> <span class="user">${tweetData.user.handle}</span>
+        <span><i class="fas fa-user-astronaut"></i> ${
+          tweetData.user.name
+        }</span> <span class="user">${tweetData.user.handle}</span>
       </header>
       <section>
-        <p>${tweetData.content.text}</p>
+        <p>${escape(tweetData.content.text)}</p>
       </section>
       <footer>
         <time>${timeago.format(tweetData.created_at)}</time>
@@ -84,3 +93,9 @@ const createTweetElement = function(tweetData) {
   return $tweet;
 };
 
+// escape function for user input text
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
