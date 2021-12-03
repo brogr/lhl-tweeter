@@ -19,9 +19,15 @@ nav {
   .new-tweet-button {
     display: flex;
     flex-direction: column;
-  }
-  .new-tweet-button i {
-    align-self: center;
-    color: coral;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      color: coral;
+    }
+    
+    i {
+      align-self: center;
+      color: coral;
+    }
   }
 }

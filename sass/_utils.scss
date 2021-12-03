@@ -1,3 +1,9 @@
 .error {
   color:$color-error;
 }
+
+@mixin vertically-centred() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

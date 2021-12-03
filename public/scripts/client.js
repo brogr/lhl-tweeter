@@ -6,12 +6,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(function () {
-  /* 
-  // invoke timeago for tweets' dates
-  document.querySelectorAll(".tweet time").forEach((timeEl) => {
-    timeEl.textContent = timeago.format(timeEl.textContent);
-  }); 
-  */
+  // new tweet button: scroll to form and focus on textarea
+  $(".new-tweet-button").on("click", function () {
+    $(".new-tweet").get(0).scrollIntoView();
+    $(".new-tweet:eq(0) #tweet-text").focus();
+  });
 
   // new tweet form: submit
   $(".new-tweet form").on("submit", submitForm);
@@ -54,6 +53,8 @@ const submitForm = function (event) {
 const loadTweets = function (callback) {
   const url = "/tweets";
   $.ajax(url).done(function (data) {
+    // reverse order to sort DESC
+    data.reverse();
     // render tweets data
     callback(data);
   });
