@@ -32,6 +32,11 @@
   color: white;
   text-transform: uppercase;
 }
+.new-tweet button:hover,
+.new-tweet button:focus {
+  color: coral;
+  cursor:pointer;
+}
 .new-tweet .counter {
   padding-right: 0;
   padding-left: 0;

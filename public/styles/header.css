@@ -1,11 +1,18 @@
 .header {
-  height: 400px;
-  margin-top: 120px;
+  height: 350px;
   width: 100%;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #faf255;
   background-image: url('../images/diagonal-noise.png');
+}
+.header h2 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  
 }

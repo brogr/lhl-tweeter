@@ -19,6 +19,7 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  margin-top: 75px;
 }
 
 /*
@@ -28,4 +29,37 @@ body {
 main {
   width: 90%;
   margin: 0 auto;
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    margin: 125px 1.5em 0 1.5em;
+    justify-content: space-between;
+    gap: 1.5em;
+  }
+  .header {
+    flex-basis: 350px;
+  }
+  main {
+    margin: 0;
+    width: auto;
+    flex-grow: 1;
+  }
+}
+
+/* large desktop */
+@media (min-width: 1440px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5em;
+  }
+  main .new-tweet, main #tweets {
+    margin: 0;
+    flex-basis: 50%;
+  }
 }
