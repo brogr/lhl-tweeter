@@ -6,24 +6,22 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(function () {
-  $footer = $(".footer");
+
+  // on scroll: toggle footer with top-link
+  // throttling thanks to https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+  let lastKnownScrollPosition = 0;
+  let ticking = false;
   $(window).scroll(function (event) {
-    const topH = $(".header").height() + $(".new-tweet").height();
-    if ($(this).scrollTop() >= topH) {
-      // scrolled below margin: show footer
-      console.log("below");
-      if ($footer.is(":hidden")) {
-        $footer.show();
-      }
-    } else {
-      // scrolled above margin: hide foooter
-      console.log("above");
-      if ($footer.is(":visible")) {
-        $(".footer").hide();
-      }
+    lastKnownScrollPosition = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        toggleFooter(lastKnownScrollPosition);
+        ticking = false;
+      });
+      ticking = true;
     }
   });
-  
+
   // compose new tweet button: toggle form area, scroll to form and focus on textarea
   $(".new-tweet-button").on("click", function () {
     $(".new-tweet").toggle(function () {
@@ -40,6 +38,24 @@ $(function () {
   // fetch tweets data, then render them
   loadTweets(renderTweets);
 });
+
+// toggleFooter: invoked on scroll
+const toggleFooter = function (scrollTop) {
+  $footer = $(".footer");
+  // const topH = $(".header").height() + $(".new-tweet").height();
+  const topH = $("#tweets").offset().top;
+  if (scrollTop >= topH) {
+    // scrolled below margin: show footer
+    if ($footer.is(":hidden")) {
+      $footer.show();
+    }
+  } else {
+    // scrolled above margin: hide foooter
+    if ($footer.is(":visible")) {
+      $(".footer").hide();
+    }
+  }
+};
 
 // submitForm: new tweet form handler to validate and post data via AJAX
 const submitForm = function (event) {
