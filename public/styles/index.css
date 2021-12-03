@@ -194,11 +194,13 @@ nav .new-tweet-button i {
 .tweet header {
   padding-top: 1em;
   padding-bottom: 0.25em;
+  align-items: center;
 }
-.tweet header i {
+.tweet header img {
   margin-right: 0.33em;
+  vertical-align: middle;
 }
-.tweet header .user {
+.tweet header .handle {
   color: #9a9a9a;
 }
 .tweet section {

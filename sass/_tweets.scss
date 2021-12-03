@@ -20,11 +20,13 @@
   header {
     padding-top: 1em;
     padding-bottom: 0.25em;
+    align-items: center;
 
-    i {
+    img {
       margin-right: 0.33em;
+      vertical-align: middle;
     }
-    .user {
+    .handle {
       color: $color-text-light;
     }
   }

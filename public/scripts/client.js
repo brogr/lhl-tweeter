@@ -74,9 +74,11 @@ const createTweetElement = function(tweetData) {
   const $tweet = $(`
     <article class="tweet">
       <header>
-        <span><i class="fas fa-user-astronaut"></i> ${
-          tweetData.user.name
-        }</span> <span class="user">${tweetData.user.handle}</span>
+        <span>
+          <img src="${tweetData.user.avatars}" />
+          ${tweetData.user.name}
+        </span> 
+        <span class="handle">${tweetData.user.handle}</span>
       </header>
       <section>
         <p>${escape(tweetData.content.text)}</p>
