@@ -55,7 +55,9 @@
 
       &:before {
         margin-right: 0.5em;;
-        font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f06a";
+        font-family: $font-icons; 
+        font-weight: 900; 
+        content: "\f06a";
       }
     }
   }

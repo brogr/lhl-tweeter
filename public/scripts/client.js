@@ -1,5 +1,3 @@
-// TODO: sort tweets desc
-
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -42,7 +40,6 @@ $(function () {
 // toggleFooter: invoked on scroll
 const toggleFooter = function (scrollTop) {
   $footer = $(".footer");
-  // const topH = $(".header").height() + $(".new-tweet").height();
   const topH = $("#tweets").offset().top;
   if (scrollTop >= topH) {
     // scrolled below margin: show footer
@@ -67,12 +64,10 @@ const submitForm = function (event) {
   // validate
   $newText = $(this).find("#tweet-text");
   if ($newText.val() == "") {
-    // alert("Error: text is empty");
     $("#errors").append("<p>Error: text is empty</p>").slideDown();
     return false;
   }
   if ($(this).find(".counter").hasClass("error")) {
-    // alert("Error: text is too long");
     $("#errors").append("<p>Error: text is too long</p>").slideDown();
     return false;
   }
