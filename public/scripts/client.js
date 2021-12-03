@@ -68,12 +68,12 @@ const submitForm = function (event) {
   $newText = $(this).find("#tweet-text");
   if ($newText.val() == "") {
     // alert("Error: text is empty");
-    $("#errors").append("<p>Error: text is empty</p>").show();
+    $("#errors").append("<p>Error: text is empty</p>").slideDown();
     return false;
   }
   if ($(this).find(".counter").hasClass("error")) {
     // alert("Error: text is too long");
-    $("#errors").append("<p>Error: text is too long</p>").show();
+    $("#errors").append("<p>Error: text is too long</p>").slideDown();
     return false;
   }
     
