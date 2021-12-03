@@ -5,6 +5,11 @@
  */
 $(function () {
 
+  // count remaining characters on text input field
+  $("#tweet-text").on("input", function (event) {
+    charactersCounter(this);
+  });
+
   // on scroll: toggle footer with top-link
   // throttling thanks to https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
   let lastKnownScrollPosition = 0;
@@ -36,6 +41,23 @@ $(function () {
   // fetch tweets data, then render them
   loadTweets(renderTweets);
 });
+
+// charactersCounter: count remaining characters for input text field, and set warning color
+const maxCharacters = 140;
+const charactersCounter = function (input) {
+  // clear and hide errors
+  $("#errors").empty().hide();
+  // calculate remaining characters, set counter
+  let remainingCharacters = maxCharacters - $(input).val().length;
+  const $counter = $(input).parents("form").find(".counter");
+  $counter.text(remainingCharacters);
+  // indicate when maxCharacters reached
+  if (remainingCharacters < 0) {
+    $counter.addClass("error");
+  } else {
+    $counter.removeClass("error");
+  }
+};
 
 // toggleFooter: invoked on scroll
 const toggleFooter = function (scrollTop) {
