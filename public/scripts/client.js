@@ -34,7 +34,7 @@ const submitForm = function (event) {
     $("#errors").append("<p>Error: text is empty</p>").show();
     return false;
   }
-  if ($(this).find(".counter").hasClass("warn")) {
+  if ($(this).find(".counter").hasClass("error")) {
     // alert("Error: text is too long");
     $("#errors").append("<p>Error: text is too long</p>").show();
     return false;

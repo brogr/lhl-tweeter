@@ -15,10 +15,10 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: $color-text;
+  background-color: $color-bg;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: $font-regular;
   margin-top: 75px;
 }
 
@@ -32,7 +32,7 @@ main {
 }
 
 /* desktop */
-@media (min-width: 1024px) {
+@media (min-width: $bp-lg) {
   body {
     display: flex;
     flex-direction: row;
@@ -51,7 +51,7 @@ main {
 }
 
 /* large desktop */
-@media (min-width: 1440px) {
+@media (min-width: $bp-xlg) {
   main {
     display: flex;
     flex-direction: row;

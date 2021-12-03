@@ -10,9 +10,9 @@ $(function () {
     $counter.text(remainingCharacters);
     // indicate when maxCharacters reached
     if (remainingCharacters < 0) {
-      $counter.addClass("warn");
+      $counter.addClass("error");
     } else {
-      $counter.removeClass("warn");
+      $counter.removeClass("error");
     }
   });
 });

@@ -1,0 +1,218 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+  margin-top: 75px;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    margin: 125px 1.5em 0 1.5em;
+    justify-content: space-between;
+    gap: 1.5em;
+  }
+
+  .header {
+    flex-basis: 350px;
+  }
+
+  main {
+    margin: 0;
+    width: auto;
+    flex-grow: 1;
+  }
+}
+/* large desktop */
+@media (min-width: 1440px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5em;
+  }
+
+  main .new-tweet, main #tweets {
+    margin: 0;
+    flex-basis: 50%;
+  }
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  background-color: #4056A1;
+  height: 75px;
+  width: 100vw;
+  padding: 0.5em 1.5em;
+  /* border-radius: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+nav #logo {
+  font-family: "Bungee", sans-serif;
+}
+nav .new-tweet-button {
+  display: flex;
+  flex-direction: column;
+}
+nav .new-tweet-button i {
+  align-self: center;
+  color: coral;
+}
+
+.header {
+  height: 350px;
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf255;
+  background-image: url("../images/diagonal-noise.png");
+}
+
+.header h2 {
+  margin-bottom: 0;
+}
+
+.new-tweet {
+  margin-bottom: 2em;
+}
+.new-tweet h2 {
+  display: none;
+}
+.new-tweet form * {
+  font-weight: 600;
+}
+.new-tweet textarea {
+  width: 100%;
+  height: 2em;
+  border: none;
+  border-bottom: 3px #545149 solid;
+  background-color: transparent;
+  color: #545149;
+  outline: none;
+  margin: 1em 0;
+}
+.new-tweet form div {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee", sans-serif;
+}
+.new-tweet button,
+.new-tweet output {
+  padding: 0.5em;
+}
+.new-tweet button {
+  background-color: #4056A1;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+}
+.new-tweet button:hover, .new-tweet button:focus {
+  color: coral;
+  cursor: pointer;
+}
+.new-tweet .counter {
+  padding-right: 0;
+  padding-left: 0;
+}
+.new-tweet #errors {
+  display: none;
+  border: 3px solid red;
+  color: red;
+  margin-top: 0.5em;
+}
+.new-tweet #errors p {
+  margin: 0.5em;
+}
+.new-tweet #errors p:before {
+  margin-right: 0.5em;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f06a";
+}
+
+#tweets {
+  margin: 2em 0;
+}
+
+.tweet {
+  margin: 1em 0;
+  border: 3px #545149 solid;
+  padding: 0 0.5em;
+}
+.tweet:hover, .tweet:focus {
+  box-shadow: 7px 7px #9a9a9a;
+}
+.tweet header, .tweet section, .tweet footer {
+  padding: 0 1rem;
+}
+.tweet header, .tweet footer {
+  display: flex;
+  justify-content: space-between;
+}
+.tweet header {
+  padding-top: 1em;
+  padding-bottom: 0.25em;
+}
+.tweet header i {
+  margin-right: 0.33em;
+}
+.tweet header .user {
+  color: #9a9a9a;
+}
+.tweet section {
+  padding-bottom: 0.25em;
+}
+.tweet footer {
+  border-top: 3px #545149 solid;
+  font-size: small;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+}
+.tweet .icons {
+  color: #4056A1;
+}
+.tweet .icons i {
+  margin-left: 0.33em;
+}
+.tweet .icons i:hover, .tweet .icons i:focus {
+  cursor: pointer;
+  color: coral;
+}
+
+.error {
+  color: red;
+}

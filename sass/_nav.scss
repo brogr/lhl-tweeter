@@ -1,0 +1,27 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  color: $color-nav-text;
+  background-color: $color-nav-bg;
+  height: 75px;
+  width: 100vw;
+  padding: 0.5em 1.5em;
+  /* border-radius: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  #logo {
+    font-family: $font-cursive;
+  }
+  .new-tweet-button {
+    display: flex;
+    flex-direction: column;
+  }
+  .new-tweet-button i {
+    align-self: center;
+    color: coral;
+  }
+}
