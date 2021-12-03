@@ -6,13 +6,35 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(function () {
-  // new tweet button: scroll to form and focus on textarea
+  $footer = $(".footer");
+  $(window).scroll(function (event) {
+    const topH = $(".header").height() + $(".new-tweet").height();
+    if ($(this).scrollTop() >= topH) {
+      // scrolled below margin: show footer
+      console.log("below");
+      if ($footer.is(":hidden")) {
+        $footer.show();
+      }
+    } else {
+      // scrolled above margin: hide foooter
+      console.log("above");
+      if ($footer.is(":visible")) {
+        $(".footer").hide();
+      }
+    }
+  });
+  
+  // compose new tweet button: toggle form area, scroll to form and focus on textarea
   $(".new-tweet-button").on("click", function () {
-    $(".new-tweet").get(0).scrollIntoView();
-    $(".new-tweet:eq(0) #tweet-text").focus();
+    $(".new-tweet").toggle(function () {
+      if ($(this).css("display") !== "none") {
+        $(this).get(0).scrollIntoView();
+        $(this).find("#tweet-text").focus();
+      }
+    });
   });
 
-  // new tweet form: submit
+  // compose new tweet form: submit
   $(".new-tweet form").on("submit", submitForm);
 
   // fetch tweets data, then render them

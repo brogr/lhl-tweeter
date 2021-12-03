@@ -1,0 +1,12 @@
+.footer {
+  display: none;
+  padding: 0.2em;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+ 
+  i {
+    color: $color-nav-bg;
+  }
+}

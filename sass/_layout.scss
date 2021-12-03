@@ -14,12 +14,17 @@ html {
  * Global layout stuff
  */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: $color-text;
   background-color: $color-bg;
   font-size: 24px;
   font-family: $font-regular;
   margin-top: 75px;
+  
 }
 
 /*

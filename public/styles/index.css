@@ -18,6 +18,10 @@ html {
 /*
  * Global layout stuff
  */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -222,4 +226,16 @@ nav .new-tweet-button i {
 .tweet .icons i:hover, .tweet .icons i:focus {
   cursor: pointer;
   color: coral;
+}
+
+.footer {
+  display: none;
+  padding: 0.2em;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.footer i {
+  color: #4056A1;
 }
